@@ -1,0 +1,5 @@
+7. Broadcast is allow to use stram multiple time or multiple listen.
+
+8. STREAM OR STREAMCONTROLLER don't have ability reach back in time andr retriev a value has already dispatch through the stream.
+
+So we need to use behavior subjects.

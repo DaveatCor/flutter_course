@@ -101,6 +101,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 );
               }
+            ), 
+
+            RaisedButton(
+              onPressed: (){
+              },
+              child: Text("Button"),
             )
           ],
         ),
@@ -109,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
         stream: provider.bloc.submitValid,
         builder: (context, snapshot){
           return FloatingActionButton(
-            onPressed: snapshot.hasError ? null : _incrementCounter,
+            onPressed: snapshot.hasData ? _incrementCounter : null,
             tooltip: 'Increment',
             child: Icon(Icons.add),
           );
