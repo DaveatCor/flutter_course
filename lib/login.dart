@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_flutter/bloc/bloc.dart';
+import 'package:tutorial_flutter/home_screen.dart';
 import 'package:tutorial_flutter/provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -105,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             RaisedButton(
               onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
               },
               child: Text("Button"),
             )

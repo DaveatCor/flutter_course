@@ -17,6 +17,7 @@ class Bloc extends Object with ValidatorMixin{
 
   submit(){
     print(_email.value);
+    print(_password.value);
   }
 
   void dispose(){
