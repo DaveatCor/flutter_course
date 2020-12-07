@@ -3,3 +3,13 @@
 8. STREAM OR STREAMCONTROLLER don't have ability reach back in time andr retriev a value has already dispatch through the stream.
 
 So we need to use behavior subjects.
+
+----------------------------------------
+
+Summary:
+
+1. We use blocs instread of statefulwidget to share information around our apps.
+2. We can use a bloc either as a single global instance or with a scoped instance.
+3. Blocs use sinks and streams to work with information.
+4. Widgets use StreamBuilders to change their contents depending on values coming through a stream
+5. The RxDart libray is extremely useful in the vast majority of apps.
