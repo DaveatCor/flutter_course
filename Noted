@@ -1,0 +1,22 @@
+2. Understanding Animation
++Animation:
+- Records the current 'value' of the property being animated 
+- Record the status of the animation (currently running, stopped, etc)
+- status: 'Stopped', yPostion: 110px.
+
++AnimationController
+- Starts, stops, restarts the animation.
+- Records the duration of the animation.
+- Duration: 1second, stat(), stop().
+
++Tween
+- Decribes the range that the value being animated spans.
+- start with a value of 0px end with a value of 200px.
+
++AnimatedBuilder
+- Takes an animation and a 'builder' function.
+- Every time the animation thicks (changes value), builder reruns.
+
+3. App Boilerplate.
+
+5. Widget Structure
