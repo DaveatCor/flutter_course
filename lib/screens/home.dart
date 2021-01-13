@@ -20,6 +20,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       vsync: this
     );
 
+    catAnimation = Tween(begin: 0.0, end: 100.0).animate(
+      CurvedAnimation(
+        parent: catAnimation,
+        curve: Curves.easeIn
+      )
+    );
   }
 
   @override
