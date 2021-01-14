@@ -26,6 +26,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         curve: Curves.easeIn
       )
     );
+
+    // Please Animation
+    catController.forward();
   }
 
   @override
@@ -34,11 +37,18 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       appBar: AppBar(
         title: Text("AppBar"),
       ),
-      body: animationBuilder(),
+      body: AnimatedBuilder(
+        animation: catAnimation, 
+        builder: (context, child){
+          // Builder Will Rebuild Everytime The Value Of Cat Controller Change
+          // So We Use Container Because It Is Inexpensive Widget.
+          return Container(
+            child: child,
+            margin: EdgeInsets.only(top: catController.value)
+          );
+        },
+        child: Cat(),
+      ),
     );
-  }
-  
-  Widget animationBuilder(){
-    return Cat();
   }
 }
