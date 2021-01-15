@@ -28,8 +28,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       // catController
     );
 
+    // Video number 12
     // Play Animation
-    catController.forward();
+    // catController.forward();
   }
 
   @override
@@ -38,18 +39,26 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       appBar: AppBar(
         title: Text("AppBar"),
       ),
-      body: AnimatedBuilder(
-        animation: catAnimation, 
-        builder: (context, child){
-          // Builder Will Rebuild Everytime The Value Of Cat Controller Change
-          // So We Use Container Because It Is Inexpensive Widget.
-          return Container(
-            child: child,
-            margin: EdgeInsets.only(top: catController.value)
-          );
+      body: GestureDetector( // Video Number 13
+        onTap: (){
+          if (catController.status == AnimationStatus.dismissed) catController.forward();
+          else if (catAnimation.value != 0) catController.reverse();
         },
-        child: Cat(),
-      ),
+        child: AnimatedBuilder(
+          animation: catAnimation, 
+          builder: (context, child){
+            // Builder Will Rebuild Everytime The Value Of Cat Controller Change
+            // So We Use Container Because It Is Inexpensive Widget.
+            return Container(
+              color: Colors.blue,
+              child: child,
+              // height: MediaQuery.of(context).size.height,
+              margin: EdgeInsets.only(top: catAnimation.value)
+            );
+          },
+          child: Cat(),
+        ),
+      )
     );
   }
 }
