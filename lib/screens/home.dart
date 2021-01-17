@@ -20,7 +20,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       vsync: this
     );
 
-    catAnimation = Tween<double>(begin: 0.0, end: 100.0).animate(
+    catAnimation = Tween<double>(begin: -100.0, end: -200.0).animate(
       CurvedAnimation(
         parent: catController,
         curve: Curves.easeIn
@@ -42,23 +42,43 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       body: GestureDetector( // Video Number 13
         onTap: (){
           if (catController.status == AnimationStatus.dismissed) catController.forward();
-          else if (catAnimation.value != 0) catController.reverse();
+          else if (catAnimation.status == AnimationStatus.completed) catController.reverse();
         },
-        child: AnimatedBuilder(
-          animation: catAnimation, 
-          builder: (context, child){
-            // Builder Will Rebuild Everytime The Value Of Cat Controller Change
-            // So We Use Container Because It Is Inexpensive Widget.
-            return Container(
-              color: Colors.blue,
-              child: child,
-              // height: MediaQuery.of(context).size.height,
-              margin: EdgeInsets.only(top: catAnimation.value)
-            );
-          },
-          child: Cat(),
-        ),
+        child: Center(
+          child: Stack(
+            overflow: Overflow.visible,
+            children: [
+              buildCatAnimation(),
+              buildBox(),
+            ],
+          ),
+        )
       )
+    );
+  }
+
+  Widget buildCatAnimation(){
+    return AnimatedBuilder(
+      animation: catAnimation, 
+      builder: (context, child){
+        // Builder Will Rebuild Everytime The Value Of Cat Controller Change
+        // So We Use Container Because It Is Inexpensive Widget.
+        return Positioned(
+          child: child,
+          top: catAnimation.value,
+          left: 0.0,
+          right: 0.0
+        );
+      },
+      child: Cat(),
+    );
+  }
+
+  Widget buildBox(){
+    return Container(
+      width: 300,
+      height: 300,
+      color: Colors.red,
     );
   }
 }
