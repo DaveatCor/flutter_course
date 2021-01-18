@@ -81,4 +81,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       color: Colors.red,
     );
   }
+
+  Widget buildFlapLeft(){
+    return Container(
+      width: 100,
+      height: 10,
+      color: Colors.red
+    );
+  }
 }
