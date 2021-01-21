@@ -11,6 +11,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   Animation<double> catAnimation;
   AnimationController catController;
+  
+  Animation<double> boxController;
+  AnimationController boxAnimation;
 
   @override
   void initState() {
@@ -26,7 +29,18 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         parent: catController,
         curve: Curves.easeIn
       )
-      // catController
+    );
+
+    boxController = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this
+    );
+
+    boxAnimation = Tween(begin: 0.0, end: 3.14).animate(
+      CurvedAnimation(
+        parent: boxController,
+        curve: Curves.linear,
+      )
     );
 
     // Video number 12
