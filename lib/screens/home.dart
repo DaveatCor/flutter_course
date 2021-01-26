@@ -24,7 +24,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       vsync: this
     );
 
-    catAnimation = Tween<double>(begin: -100.0, end: -200.0).animate(
+    catAnimation = Tween<double>(begin: -50.0, end: -70.0).animate(
       CurvedAnimation(
         parent: catController,
         curve: Curves.easeIn
@@ -32,16 +32,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     );
 
     boxController = AnimationController(
-      duration: Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 300),
       vsync: this
     );
 
-    boxAnimation = Tween<double>(begin: 0.0, end: 3.14).animate(
+    boxAnimation = Tween<double>(begin: pi * 0.6, end: pi * 0.65).animate(
       CurvedAnimation(
         parent: boxController,
         curve: Curves.linear,
       )
     );
+
+    // 33. Resetting  Animation
+    boxAnimation.addStatusListener((status) {
+      if (status == AnimationStatus.completed){
+        boxController.reverse();
+      } else if (status == AnimationStatus.dismissed){
+        boxController.forward();
+      }
+    });
 
     // Video number 12
     // Play Animation
@@ -96,8 +105,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   Widget buildBox(){
     return Container(
-      width: 300,
-      height: 300,
+      width: 100,
+      height: 100,
       color: Colors.red,
     );
   }
@@ -110,13 +119,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         builder: (context, child){
           return Transform.rotate(
             alignment: Alignment.topLeft,
-            angle: boxAnimation.value * 0.6,
+            angle: boxAnimation.value,
             child: child,
           );
         },
         child: Container(
-          width: 100,
-          height: 10,
+          width: 70,
+          height: 5,
           color: Colors.red
         ),
       ),
