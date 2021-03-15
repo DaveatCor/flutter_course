@@ -20,3 +20,9 @@
 10. Turning class Instances to maps
     - jsonEncode data
     - complete turn data to db
+
+11. Implementing the repository
+    - create repo.dart
+    - create function and instance variable
+12. More On The Respository
+    -implement on fetchItem and fetchTopId
