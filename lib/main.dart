@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter/src/resource/new_db_provider.dart';
+import 'package:tutorial_flutter/src/resource/repository.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,9 +52,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  Repository _repository = Repository();
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+    await _repository.dbProvider.init();
+    List<int> ids = await _repository.fetchTopIds();
+    print("All Ids $ids");
+    _repository.fetchItem(ids[0]);
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

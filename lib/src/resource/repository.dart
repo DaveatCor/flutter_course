@@ -16,11 +16,13 @@ class Repository{
   Future<ItemModel> fetchItem(int id) async {
     var item = await dbProvider.fetchItem(id);
     if (item != null){
+      print("Fetcing from database");
       return item;
     }
 
     item = await apiProvider.fetchItem(id);
     await dbProvider.addItem(item);
+    print("Fetcing from api");
     return item;
   }
 }
