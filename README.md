@@ -26,3 +26,7 @@
     - create function and instance variable
 12. More On The Respository
     -implement on fetchItem and fetchTopId
+
+13. Type Annotatioin
+
+14. Casting List
