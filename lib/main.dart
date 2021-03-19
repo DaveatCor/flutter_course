@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     await _repository.dbProvider.init();
     List<int> ids = await _repository.fetchTopIds();
     print("All Ids $ids");
-    _repository.fetchItem(ids[0]);
+    _repository.fetchItem(ids[0]).then((value) => print("Items  $value"));
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

@@ -17,7 +17,7 @@ class NewsApiProvider{
   Future<ItemModel> fetchItem(int id) async {
     final response = await client.get('$_root/v0/item/$id.json');
     final parsedJson = json.decode(response.body);
-
+    print(response.body);
     return ItemModel.fromJson(parsedJson);
   }
 }

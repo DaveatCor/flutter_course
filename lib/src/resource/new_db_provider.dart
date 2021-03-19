@@ -25,8 +25,7 @@ class NewsDbProvider {
             time INTEGER,
             parent INTEGER,
             kids BLOB,
-            dead INTEGER,
-            deleted INTEGER,
+            url TEXT,
             score INTEGER,
             title TEXT,
             descendants INTEGER
@@ -35,6 +34,8 @@ class NewsDbProvider {
       }
     );
   }
+            // dead INTEGER,
+            // deleted INTEGER,
 
   Future<ItemModel>fetchItem(int id) async {
     final maps = await db.query(
