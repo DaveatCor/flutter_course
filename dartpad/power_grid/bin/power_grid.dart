@@ -5,24 +5,30 @@ void main(List<String> arguments) {
   SolarPlant solar = new SolarPlant();
 
   grid.addPlant(nuclear);
+
+  grid.addPlant(solar);
 }
 
 class PowerGrid {
-  List<NuclearPlant> connectedPlants = [];
+  List<PowerPlant> connectedPlants = [];
 
-  addPlant(NuclearPlant plant){
+  addPlant(PowerPlant plant){
     plant.turnOn();
     connectedPlants.add(plant);
   }
 }
 
-class NuclearPlant{
+abstract class PowerPlant{
+  turnOn();
+}
+
+class NuclearPlant implements PowerPlant{
   turnOn(){
     print("I'm a nuclear plant turing on");
   }
 }
 
-class SolarPlant{
+class SolarPlant implements PowerPlant{
   turnOn(){
     print("I'm a solar plant turing on");
   }
