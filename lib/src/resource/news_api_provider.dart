@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' show Client;
 import 'package:tutorial_flutter/src/model/items_m.dart';
+import 'package:tutorial_flutter/src/resource/repository.dart';
 
-class NewsApiProvider{
+class NewsApiProvider implements Source{
 
   Client client = Client();
 

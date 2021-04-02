@@ -5,22 +5,36 @@ import 'package:tutorial_flutter/src/model/items_m.dart';
 
 class Repository{
 
-  NewsDbProvider dbProvider = NewsDbProvider();
-  
-  NewsApiProvider apiProvider = NewsApiProvider();
+  List<Source> sources = [
+    NewsDbProvider(),
+    NewsApiProvider()
+  ];
+
+  List<Cache> caches = [
+    NewsDbProvider()
+  ];
 
   Future<List<int>> fetchTopIds(){
-    return apiProvider.fetchTopIds();
+    return sources[1].fetchTopIds();
   }
 
   Future<ItemModel> fetchItem(int id) async {
-    var item = await dbProvider.fetchItem(id);
+    var item = await sources[0].fetchItem(id);
     if (item != null){
       return item;
     }
 
-    item = await apiProvider.fetchItem(id);
-    await dbProvider.addItem(item);
+    item = await sources[0].fetchItem(id);
+    await sources[0].addItem(item);
     return item;
   }
+}
+
+abstract class Source {
+  Future<List<int>> fetchTopIds();
+  Future<ItemModel>fetchItem(int id);
+}
+
+abstract class Cache{
+  Future<ItemModel>fetchItem(int id);
 }

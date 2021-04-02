@@ -4,9 +4,14 @@ import 'dart:io';
 import 'dart:async';
 import 'package:path/path.dart';
 import 'package:tutorial_flutter/src/model/items_m.dart';
+import 'package:tutorial_flutter/src/resource/repository.dart';
 
-class NewsDbProvider {
+class NewsDbProvider implements Source, Cache{
   Database db;
+
+  Future<List<int>> fetchTopIds(){
+    return null;
+  }
 
   //BLOB is a big set of data. For use inside SQlite String
 
