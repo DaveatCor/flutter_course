@@ -41,7 +41,7 @@ class NewsDbProvider implements Source, Cache{
     );
   }
 
-  Future<ItemModel>fetchItem(int id) async {
+  Future<ItemModel> fetchItem(int id) async {
     final maps = await db.query(
       "Items",
       columns: null,
@@ -55,7 +55,7 @@ class NewsDbProvider implements Source, Cache{
     return null;
   }
 
-  Future<int>addItem(ItemModel item) async {
+  Future<int> addItem(ItemModel item) async {
     return await db.insert("Items", item.toMap());
   }
 }
