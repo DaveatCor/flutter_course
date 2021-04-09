@@ -59,3 +59,5 @@ class NewsDbProvider implements Source, Cache{
     return await db.insert("Items", item.toMap());
   }
 }
+
+final newsDbProvider = NewsDbProvider();

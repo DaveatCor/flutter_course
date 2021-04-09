@@ -6,12 +6,12 @@ import 'package:tutorial_flutter/src/model/items_m.dart';
 class Repository{
 
   List<Source> sources = [
-    NewsDbProvider(),
+    newsDbProvider,
     NewsApiProvider()
   ];
 
   List<Cache> caches = [
-    NewsDbProvider()
+    newsDbProvider,
   ];
 
   Future<List<int>> fetchTopIds(){
