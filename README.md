@@ -8,3 +8,14 @@
     - concept of FutureBuilder
 5. Futurebuilder In Action
     - add example function for future Builder
+6. The stories provider
+    - create bloc(folder, stories bloc and provider)
+    - write code in stories_provider.dart
+7. Bloc Design
+    - design bloc 
+    - add PublishSubject (Similar StreamController)
+    + add Observable (Similar Stream)
+        - Rxdart no longer needs a custom class to work
+        - A recent Dart feature (Dart 2.6) to implement all of the Observable features directly on Stream
+        - replace all Observale with stream.
+    - add dispose ob instance PublishSubject
