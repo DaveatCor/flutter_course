@@ -19,3 +19,9 @@
         - A recent Dart feature (Dart 2.6) to implement all of the Observable features directly on Stream
         - replace all Observale with stream.
     - add dispose ob instance PublishSubject
+
+8. Exposing Bloc Getters
+    - add fuction fetchTopId into stories bloc
+
+9. Wiring Up The Stories Provider
+    - implement stories bloc
