@@ -25,3 +25,6 @@
 
 9. Wiring Up The Stories Provider
     - implement stories bloc
+
+10. Bloc Testing
+    - add Widget function of Stream builder
